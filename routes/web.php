@@ -14,7 +14,7 @@ Route::get('/tasks/{task}', 'TasksController@show');
 
 Route::get('/', 'PostsController@index');
 Route::get('/posts/{post}', 'PostsController@show');
-
+Route::get('/posts/new', 'PostsController@new');
 
 /* New Resources */
 
