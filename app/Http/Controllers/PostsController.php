@@ -20,4 +20,15 @@ class PostsController extends Controller
     public function create() {
         return view('posts.create');
     }
+
+    public function store() {
+        $post = new Post;
+        $post->title = request('title');
+        $post->body = request('body');
+
+        /* TODO: save fails, find out why */
+        $post->save();
+
+        return redirect('/');
+    }
 }
