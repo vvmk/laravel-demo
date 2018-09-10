@@ -17,7 +17,7 @@ class PostsController extends Controller
         return view('posts.show', compact('post'));
     }
 
-    public function new() {
-        return view('posts.new');
+    public function create() {
+        return view('posts.create');
     }
 }
