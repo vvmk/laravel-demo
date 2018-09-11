@@ -27,13 +27,25 @@ class PostsController extends Controller
     }
 
     public function store(Request $request) {
-        $post = new Post;
-        $post->title = request('title');
-        $post->body = request('body');
+        $this->validate(request(), [
+            'title' => 'required',
+            'body' => 'required',
+        ]);
 
-        /* TODO: save fails, find out why */
-        $post->save();
+        Post::create([
+            'title' => $request->title,
+            'body' => $request->body,
+            'user_id' => auth()->id(),
+        ]);
 
         return redirect()->home();
+        /* $post = new Post; */
+        /* $post->title = request('title'); */
+        /* $post->body = request('body'); */
+
+        /* /1* TODO: save fails, find out why *1/ */
+        /* $post->save(); */
+
+        /* return redirect()->home(); */
     }
 }
