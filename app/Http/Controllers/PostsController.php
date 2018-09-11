@@ -13,7 +13,7 @@ class PostsController extends Controller
     }
 
     public function index() {
-        $posts = Post::all();
+        $posts = Post::latest()->get();
 
         return view('posts.index', compact('posts'));
     }
@@ -27,15 +27,13 @@ class PostsController extends Controller
     }
 
     public function store(Request $request) {
-        dd($request);
+        $post = new Post;
+        $post->title = request('title');
+        $post->body = request('body');
 
-        /* $post = new Post; */
-        /* $post->title = request('title'); */
-        /* $post->body = request('body'); */
+        /* TODO: save fails, find out why */
+        $post->save();
 
-        /* /1* TODO: save fails, find out why *1/ */
-        /* $post->save(); */
-
-        /* return redirect('/'); */
+        return redirect()->home();
     }
 }

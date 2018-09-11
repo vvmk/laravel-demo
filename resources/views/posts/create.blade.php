@@ -2,10 +2,10 @@
 
 @section ('content')
 <hr>
-<form>
+<form method="POST" action="/posts">
     {{ csrf_field() }}
 
-    <div class="form-group" method="POST" action="{{ action('PostsController@store') }}">
+    <div class="form-group">
         <label for="title">Title</label>
         <input name="title" type="text" class="form-control" id="title" placeholder="Post Title">
     </div>
