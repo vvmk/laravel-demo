@@ -22,13 +22,15 @@ class PostsController extends Controller
     }
 
     public function store(Request $request) {
-        $post = new Post;
-        $post->title = request('title');
-        $post->body = request('body');
+        dd($request);
 
-        /* TODO: save fails, find out why */
-        $post->save();
+        /* $post = new Post; */
+        /* $post->title = request('title'); */
+        /* $post->body = request('body'); */
 
-        return redirect('/');
+        /* /1* TODO: save fails, find out why *1/ */
+        /* $post->save(); */
+
+        /* return redirect('/'); */
     }
 }

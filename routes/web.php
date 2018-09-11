@@ -9,11 +9,11 @@
 /*
  * specify the controller@method
  */
-Route::get('/tasks', 'TasksController@index');
-Route::get('/tasks/{task}', 'TasksController@show');
+/* Route::get('/tasks', 'TasksController@index'); */
+/* Route::get('/tasks/{task}', 'TasksController@show'); */
 
 Route::get('/', 'PostsController@index');
-/* Route::get('/posts/{post}', 'PostsController@show'); */
+Route::get('/posts/{post}', 'PostsController@show');
 Route::get('/posts/create', 'PostsController@create');
 Route::post('/posts', 'PostsController@store');
 
@@ -33,3 +33,7 @@ Route::post('/posts', 'PostsController@store');
 
 // artisan, make me a model called Post, and I would like a migration and a controller, please.
 // now go to database/migrations and set up the table.
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

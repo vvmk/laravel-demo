@@ -5,9 +5,9 @@
 <form>
     {{ csrf_field() }}
 
-    <div class="form-group" method="POST" action="/posts">
+    <div class="form-group" method="POST" action="{{ action('PostsController@store') }}">
         <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" placeholder="Post Title">
+        <input name="title" type="text" class="form-control" id="title" placeholder="Post Title">
     </div>
 
     <div class="form-group">
