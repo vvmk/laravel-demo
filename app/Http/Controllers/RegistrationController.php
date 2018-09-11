@@ -8,7 +8,7 @@ use App\User;
 class RegistrationController extends Controller
 {
     public function create() {
-        return view('sessions.create');
+        return view('registration.create');
     }
     
     public function store() {
@@ -16,7 +16,7 @@ class RegistrationController extends Controller
         $this->validate(request(), [
             'name' => 'required',
             'email' => 'required|email',
-            'password' => 'required|confirmed',
+            'password' => bcrypt('required|confirmed'),
         ]);
 
         // create and save the user
