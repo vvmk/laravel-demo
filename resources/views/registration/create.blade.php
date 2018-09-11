@@ -15,8 +15,8 @@
         <input id="password" class="form-control" type="password" name="password" required>
     </div>
     <div class="form-group">
-        <label for="confirm">Password</label>
-        <input id="confirm" class="form-control" type="password" name="confirm" required>
+        <label for="password_confirmation">Confirm Password</label>
+        <input id="password_confirmation" class="form-control" type="password" name="password_confirmation" required>
     </div>
     <button class="btn btn-success" type="submit">Sign up</button>
 
