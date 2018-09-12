@@ -33,21 +33,11 @@ class PostsController extends Controller
             'title' => 'required',
             'body' => 'required',
         ]);
-        
-        Post::create([
-            'title' => $request->title,
-            'body' => $request->body,
-            'user_id' => auth()->id(),
-        ]);
+
+        auth()->user()->publish(
+            new Post([$request->title, $request->body])
+        );
 
         return redirect()->home();
-        /* $post = new Post; */
-        /* $post->title = request('title'); */
-        /* $post->body = request('body'); */
-
-        /* /1* TODO: save fails, find out why *1/ */
-        /* $post->save(); */
-
-        /* return redirect()->home(); */
     }
 }
