@@ -17,7 +17,7 @@ Route::get('/posts/create', 'PostsController@create');
 Route::post('/posts', 'PostsController@store');
 Route::get('/posts/{post}', 'PostsController@show');
 
-Route::get('/posts/{post}/comments', 'CommentController@store');
+Route::post('/posts/{post}/comments', 'CommentController@store');
 /* New Resources */
 
 // Eloquent model => Post (posts table)

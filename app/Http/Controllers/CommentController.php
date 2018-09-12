@@ -3,20 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Post;
+
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -35,18 +27,11 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $this->validate($request, ['body' => 'required|min:2']);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Comment $comment)
-    {
-        //
+        $post->addComment($request->body);
+        
+        return back();
     }
 
     /**
