@@ -1,45 +1,15 @@
 <?php
 
-/* Route::get('/tasks', function () { */
-/*     $tasks = Task::all(); */
-
-/*     return view('tasks.index', compact('tasks')); */
-/* }); */
-
-/*
- * specify the controller@method
- */
-/* Route::get('/tasks', 'TasksController@index'); */
-/* Route::get('/tasks/{task}', 'TasksController@show'); */
-
+// Posts
 Route::get('/', 'PostsController@index')->name('home');
 Route::get('/posts/create', 'PostsController@create');
 Route::post('/posts', 'PostsController@store');
 Route::get('/posts/{post}', 'PostsController@show');
 
+// Comments
 Route::post('/posts/{post}/comments', 'CommentController@store');
-/* New Resources */
 
-// Eloquent model => Post (posts table)
-// controller => PostsController
-// migration => create_posts_table
-
-// php artisan make:model Post
-// php artisan make:controller PostsController
-// php artisan make:migration create_posts_table --create=posts
-
-/* OR */
-
-// php artisan make:model Post -mc
-
-// artisan, make me a model called Post, and I would like a migration and a controller, please.
-// now go to database/migrations and set up the table.
-
-// Added by php artisan make:auth
-/* Auth::routes(); */
-
-/* Route::get('/home', 'HomeController@index')->name('home'); */
-
+// Auth
 Route::get('/register', 'RegistrationController@create');
 Route::post('/register', 'RegistrationController@store');
 
