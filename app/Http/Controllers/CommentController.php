@@ -25,11 +25,11 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Post $post)
     {
-        $this->validate($request, ['body' => 'required|min:2']);
+        $this->validate(request(), ['body' => 'required|min:2']);
 
-        $post->addComment($request->body);
+        $post->addComment(request('body'), auth()->id());
         
         return back();
     }

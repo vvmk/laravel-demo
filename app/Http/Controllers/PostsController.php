@@ -9,7 +9,9 @@ class PostsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+        // must be signed in to create a post
+        // all routes are behind auth except index and show. go figure...
+        $this->middleware('auth')->except(['index', 'show']);
     }
 
     public function index() {
@@ -31,7 +33,7 @@ class PostsController extends Controller
             'title' => 'required',
             'body' => 'required',
         ]);
-
+        
         Post::create([
             'title' => $request->title,
             'body' => $request->body,
