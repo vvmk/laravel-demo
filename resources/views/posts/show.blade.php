@@ -2,7 +2,7 @@
 @section ('content')
 <div class="h-100 p-2 container">
     <h1 class="mb-2 text-center">
-        {{ $post->title }}
+        {{ $post->title }} by {{ $post->user->name }}
     </h1>
     <p class="p-2">
     {{ $post->body }}
