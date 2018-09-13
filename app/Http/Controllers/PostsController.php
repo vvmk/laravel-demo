@@ -35,7 +35,7 @@ class PostsController extends Controller
         ]);
 
         auth()->user()->publish(
-            new Post([$request->title, $request->body])
+            new Post(request(['title', 'body']))
         );
 
         return redirect()->home();
