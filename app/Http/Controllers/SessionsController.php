@@ -8,7 +8,7 @@ class SessionsController extends Controller
 {
     public function __construct() {
         // auth'd users can't see this page.
-        $this->middleware('guest');
+        $this->middleware('guest', ['except' => 'destroy']);
     }
 
     public function create() {
