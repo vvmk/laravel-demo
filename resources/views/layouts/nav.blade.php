@@ -16,11 +16,9 @@
             @if (Auth::check())
 
             <li class="ml-auto nav-item dropdown">
-                <a class="disabled" href="#">Welcome back, {{ Auth::user()->name }}</a>
-                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+                <button class="nav-link btn btn-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ Auth::user()->name }}</button>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="disabled" href="#">Welcome back, {{ Auth::user()->name }}</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/logout">Log out</a>
                 </div>

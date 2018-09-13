@@ -20,22 +20,23 @@ body {
     </style>
 
   </head>
-
   <body>
 
     @include ('layouts.nav')
+    @include ('layouts.banner')
 
     <main role="main">
-      @yield ('content')
+      <div class="container">
+        <div class="row">
+          <div class="p-2 col-10">
+            @yield ('content')
+          </div>
+          <div class="col-2">
+            @include ('layouts.sidebar')
+          </div>
+        </div>
+      </div>
     </main>
-    <div class="row">
-      <div class="col-8">
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-      </div>
-      <div class="col-2">
-        @include ('layouts.sidebar')
-      </div>
-    </div>
 
     @include ('layouts.footer')
 
