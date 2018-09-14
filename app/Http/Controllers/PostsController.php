@@ -17,7 +17,7 @@ class PostsController extends Controller
     public function index() {
         $posts = Post::latest()->get();
 
-        $archives = Post::selectRaw('EXTRACT(YEAR FROM created_at) as year, EXTRACT(MONTH FROM created_at) as month, count(*) published')
+        $archives = Post::selectRaw("EXTRACT(YEAR FROM created_at) as year, to_char(created_at, 'Month')  as month, count(*) published")
             ->groupBy('year', 'month')
             ->orderByRaw('min(created_at) desc')
             ->get()
