@@ -10,10 +10,14 @@ class AppServiceProvider extends ServiceProvider
      * Bootstrap any application services.
      *
      * @return void
+     *
+     * After all services have been registered.
      */
     public function boot()
     {
-        //
+        view()->composer('layouts.sidebar', function ($view) {
+            $view->with('archives', \App\Post::archives());
+        });
     }
 
     /**
