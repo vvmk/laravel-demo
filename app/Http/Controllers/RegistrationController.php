@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Mail\Welcome;
+use App\Http\Requests\RegistrationRequest;
 
 class RegistrationController extends Controller
 {
@@ -12,14 +13,10 @@ class RegistrationController extends Controller
         return view('registration.create');
     }
     
-    public function store(Request $request) {
-        /* dd($request->name); */
-        // validate the form
-        /* $this->validate($request, [ */
-        /*     'name' => 'required', */
-        /*     'email' => 'required|email', */
-        /*     'password' => 'required|confirmed', */
-        /* ]); */
+    public function store(RegistrationRequest $request) {
+
+        // IF VALIDATION FAILS (moved to Requests\RegistrationRequest) NONE OF THE BELOW CODE 
+        // IS EXECUTED && BROWSER IS AUTOMATICALLY REDIRECTED (along with errors).
 
         // create and save the user
         $user = new User;
