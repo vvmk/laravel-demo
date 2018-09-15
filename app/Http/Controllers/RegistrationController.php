@@ -42,7 +42,7 @@ class RegistrationController extends Controller
         // ...or using the helper method
         auth()->login($user);
 
-        \Mail::to($user)->send(new Welcome);
+        \Mail::to($user)->send(new Welcome($user));
 
         return redirect()->home();
     }
