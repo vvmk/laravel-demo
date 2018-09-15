@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\User;
-use App\Mail\Welcome;
-use App\Http\Requests\RegistrationRequest;
+use App\Http\Requests\RegistrationForm;
 
 class RegistrationController extends Controller
 {
@@ -13,33 +10,9 @@ class RegistrationController extends Controller
         return view('registration.create');
     }
     
-    public function store(RegistrationRequest $request) {
-
-        // IF VALIDATION FAILS (moved to Requests\RegistrationRequest) NONE OF THE BELOW CODE 
-        // IS EXECUTED && BROWSER IS AUTOMATICALLY REDIRECTED (along with errors).
-
-        // create and save the user
-        $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = bcrypt($request->password);
-        $user->save();
-        
-        // using the Facade, but I couldn't get that to work so used the above method (for this example)
-        /* $user = User::create(request([ */
-        /*     'name' => $request->name, */ 
-        /*     'email' => $request->email, */ 
-        /*     'password' => bcrypt($request->password), */
-        /* ])); */
-
-        // sign them in
-        // using the Auth facade...
-        /* \Auth::login(); */
-
-        // ...or using the helper method
-        auth()->login($user);
-
-        \Mail::to($user)->send(new Welcome($user));
+    public function store(RegistrationForm $form) {
+        // logic moved to Requests/RegistrationForm
+        $form->persist();
 
         return redirect()->home();
     }
