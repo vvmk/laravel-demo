@@ -15,6 +15,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        // Register a composer where the first argument is the name of the view being loaded.
         view()->composer('layouts.sidebar', function ($view) {
             $view->with('archives', \App\Post::archives());
         });

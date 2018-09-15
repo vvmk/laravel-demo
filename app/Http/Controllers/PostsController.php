@@ -19,9 +19,7 @@ class PostsController extends Controller
             ->filter(request(['month', 'year']))
             ->get();
 
-        // Temporary
         $archives = Post::archives();
-
 
         return view('posts.index', compact('posts', 'archives'));
     }

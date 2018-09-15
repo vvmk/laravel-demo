@@ -26,7 +26,10 @@ class ExampleTest extends TestCase
         ]);
 
         // When I fetch the archives.
-        $posts = Post::archives();
+        $oPosts = Post::archives();
+        $posts = array_map(function($p) {
+            return $p->toArray();
+        }, $oPosts);
 
         // Then the response should be in the proper format
         $this->assertEquals([
