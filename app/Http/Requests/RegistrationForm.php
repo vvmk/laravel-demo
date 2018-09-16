@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Mail\Welcome;
 
@@ -33,10 +34,11 @@ class RegistrationForm extends FormRequest
     }
 
     public function persist() {
+        dd($this);
         $user = User::create([
             'name' => $this->name,
             'email' => $this->email,
-            'password' => bcrypt($this->password),
+            'password' => Hash::make($this->password),
         ]);
 
         auth()->login($user);

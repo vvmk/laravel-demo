@@ -23,6 +23,13 @@ body {
   <body>
 
     @include ('layouts.nav')
+
+    @if ($flash = session('message'))
+    <div id="flash-message" class="alert alert-success">
+      {{ $flash }}
+    </div>
+    @endif
+
     @include ('layouts.banner')
 
     <main role="main">
