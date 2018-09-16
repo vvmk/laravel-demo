@@ -4,6 +4,15 @@
     <h1 class="mb-2 text-center">
         {{ $post->title }} by {{ $post->user->name }}
     </h1>
+
+    @if (count($post->tags))
+        <ul>
+            @foreach ($post->tags as $tag)
+                <li>{{ $tag->name }}<li>
+            @endforeach
+        </ul>
+    @endif
+
     <p class="p-2">
     {{ $post->body }}
     </p>

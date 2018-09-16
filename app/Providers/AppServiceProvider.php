@@ -17,8 +17,10 @@ class AppServiceProvider extends ServiceProvider
     {
         // Register a composer where the first argument is the name of the view being loaded.
         view()->composer('layouts.sidebar', function ($view) {
-            $view->with('archives', \App\Post::archives());
-            $view->with('tags', \App\Tag::pluck('name'));
+            $archives = \App\Post::archives();
+            $tags = \App\Tag::has('posts')->pluck('name');
+
+            $view->with(compact('archives', 'tags'));
         });
     }
 

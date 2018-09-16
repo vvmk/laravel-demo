@@ -3,7 +3,7 @@
     <ol class="list-unstyled">
         @foreach ($archives as $arch)
         <li>
-            <a href="/?month={{ $arch['month'] }}&year={{ $arch['year'] }}">{{ $arch['month'] . ' ' . $arch['year'] }}
+            <a href="/?month={{ $arch['month'] }}&year={{ $arch['year'] }}">{{ $arch['month'] . ' ' . $arch['year'] }}</a>
         </li>
         @endforeach
     </ol>
@@ -14,7 +14,7 @@
     <ol class="list-unstyled">
         @foreach ($tags as $tag)
         <li>
-            <a href="/posts/tags/{{ $tag }}">{{ $tag }}</a>
+            <a href="/posts/tags/{{ $tag->name }}">{{ $tag->name }}</a>
         </li>
         @endforeach
     </ol>
